@@ -1,7 +1,11 @@
 {
-
-  "ref": "mm10",
-  "samples": ["RK10_S10","RK11_S11","RK12_S12","RK13_S13","RK14_S14"],
-  "sample_path":"http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage",
-  "file_types": ["gff3","bed","bigwig","bam","bedgraph"]
+  "domain" : "http://iris.bx.psu.edu",
+  "project" : "projects/suresh-kuchipudi/ipn-virus",
+  "ref" : "ref/ipn.fa",
+  "samples" : ["IPN-RNA_S18","IPN-ATCC_S19","IPNL_S20"],
+  "bam_dir" : "align",
+  "bigwig_dir" : "align",
+  "vcf_dir" :"vcf",
+  "bedgraph_dir" : "align",
+  "file_types" : ["bigwig","vcf","bam"]
 }
