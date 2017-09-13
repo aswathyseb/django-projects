@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="mm10" hasGeneTrack="true" hasSequenceTrack="true" locus="All" path="/Users/asebastian/django/standalone-django/apc_test2.xml" version="8">
+    <Resources>
+        <Resource path="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage/RK13_S13_corrected.bw"/>
+        <Resource path="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage/RK11_S11_corrected.bw"/>
+        <Resource path="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/align/RK10_S10_corrected.bam"/>
+        <Resource path="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage/RK10_S10_corrected.bw"/>
+        <Resource path="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage/RK12_S12_corrected.bw"/>
+        <Resource path="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage/RK14_S14_corrected.bw"/>
+    </Resources>
+    <Panel height="575" name="DataPanel" width="1953">
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage/RK10_S10_corrected.bw" name="RK10_S10" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="256773.94" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage/RK11_S11_corrected.bw" name="RK11_S11" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="256773.94" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage/RK12_S12_corrected.bw" name="RK12_S12" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="256773.94" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage/RK13_S13_corrected.bw" name="RK13_S13" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="256773.94" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/coverage/RK14_S14_corrected.bw" name="RK14_S14" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="256773.94" minimum="0.0" type="LINEAR"/>
+        </Track>
+    </Panel>
+    <Panel height="254" name="Panel1505249255949" width="1953">
+        <Track altColor="0,0,178" autoScale="true" color="175,175,175" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/align/RK10_S10_corrected.bam_coverage" name="RK10_S10_corrected.bam Coverage" showReference="false" snpThreshold="0.2" sortable="true" visible="true">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="60.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="60" id="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/align/RK10_S10_corrected.bam_junctions" name="RK10_S10_corrected.bam Junctions" sortable="false" visible="false" windowFunction="count">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="60.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+        <Track altColor="0,0,178" autoScale="false" color="0,0,178" displayMode="EXPANDED" featureVisibilityWindow="-1" fontSize="10" id="http://iris.bx.psu.edu/projects/ed-gunther/apc_hotspot/corrected/align/RK10_S10_corrected.bam" name="RK10_S10_corrected.bam" sortable="true" visible="true">
+            <RenderOptions colorByTag="" colorOption="READ_STRAND" flagUnmappedPairs="false" groupByTag="" maxInsertSize="1000" minInsertSize="50" shadeBasesOption="QUALITY" shadeCenters="true" showAllBases="false" sortByTag=""/>
+        </Track>
+    </Panel>
+    <Panel height="112" name="FeaturePanel" width="1953">
+        <Track altColor="0,0,178" autoScale="false" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="Reference sequence" name="Reference sequence" sortable="false" visible="true"/>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" colorScale="ContinuousColorScale;0.0;185.0;255,255,255;0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="35" id="mm10_genes" name="Refseq genes" renderer="BASIC_FEATURE" sortable="false" visible="true" windowFunction="count">
+            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="185.0" minimum="0.0" type="LINEAR"/>
+        </Track>
+    </Panel>
+    <PanelLayout dividerFractions="0.6054564533053515,0.8772298006295908"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>
