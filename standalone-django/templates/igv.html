@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 {% block ref %}
 <Session genome="{{ref}}" hasGeneTrack="true" hasSequenceTrack="true" version="8">
-{% endblock %}
-
-{% block sample_list %}
+    {% endblock %}
+    
+    {% block sample_list %}
         <Resource path="{{sample_path}}/{{sample}}_corrected.bw"/>
-{% endblock %}
+    {% endblock %}
 
-{% block sample_track %}
+    {% block sample_track %}
     <Panel height="563" name="DataPanel" width="2048">
-        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="{{sample_path}}/{{sample}}_corrected.bw" name="{{sample}}" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
-            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="256773.94" minimum="0.0" type="LINEAR"/>
+        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178"
+               displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10"
+               id="{{sample_path}}/{{sample}}_corrected.bw" name="{{sample}}" normalize="false" renderer="BAR_CHART"
+               sortable="true" visible="true" windowFunction="mean">
+        <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="256773.94" minimum="0.0" type="LINEAR"/>
         </Track>
     </Panel>
-{% endblock %}
+    {% endblock %}
 
 
 
