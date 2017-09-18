@@ -1,0 +1,9 @@
+domain = http://iris.bx.psu.edu
+project = projects/anthony_pedley
+reference = hg38
+gtf=ref/Homo_sapiens.GRCh38.90.chr.sorted.gtf
+custom_reference = no
+samples = AK,MG
+bigwig_dir = coverage
+bam_dir =bam
+file_types = bigwig,gtf,bam

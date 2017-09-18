@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 {% block ref %}
-{%endblock %}
+{% endblock %}
 
     <Resources>
     {% for sample in samples %}
         {% block list_files %}
         {% endblock %}
     {% endfor %}
+
+    {%  if "gtf" in file_types or "gff3" in file_types %}
+            {% block list_ann %}
+            {% endblock %}
+    {% endif %}
     </Resources>
 
     <Panel height="365" name="DataPanel" width="1953">
@@ -39,8 +44,6 @@
     {% endfor %}
 {% endif %}
 
-
-
 {% if "bed" in file_types %}
     {% for sample in samples %}
          {% block bed_track %}
@@ -48,15 +51,10 @@
     {% endfor %}
 {% endif %}
 
-{% if "gff3" in file_types %}
-    {% for sample in samples %}
-         {% block gff3_track %}
-         {% endblock %}
-    {% endfor  %}
-{% endif %}
-
     <Panel height="56" name="FeaturePanel" width="1953">
         <Track altColor="0,0,178" autoScale="false" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="Reference sequence" name="Reference sequence" sortable="false" visible="true"/>
+        {% block gene_track %}
+        {%  endblock gene_track %}
     </Panel>
     <PanelLayout dividerFractions="0.26128016789087094,0.5561385099685204,0.85099685204617,0.9391395592864638"/>
     <HiddenAttributes>
