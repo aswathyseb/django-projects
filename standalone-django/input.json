@@ -12,7 +12,7 @@
     "bam_dir": "bam",
     "file_types": [
         "bigwig",
-        "gtf",
-        "bam"
+        "bam",
+        "gtf"
     ]
 }

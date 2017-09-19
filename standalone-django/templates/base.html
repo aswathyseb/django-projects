@@ -3,53 +3,36 @@
 {% endblock %}
 
     <Resources>
-    {% for sample in samples %}
         {% block list_files %}
         {% endblock %}
-    {% endfor %}
-
-    {%  if "gtf" in file_types or "gff3" in file_types %}
-            {% block list_ann %}
-            {% endblock %}
-    {% endif %}
     </Resources>
 
     <Panel height="365" name="DataPanel" width="1953">
-{% if "vcf" in file_types %}
-    {% for sample in samples %}
+    {% if "vcf" in file_types  %}
         {% block vcf_track %}
         {% endblock %}
-    {% endfor %}
-{% endif %}
+    {%  endif %}
 
-{% if "bigwig" in file_types %}
-    {% for sample in samples %}
+    {% if "bigwig" in file_types  %}
         {% block bigwig_track %}
         {% endblock %}
-    {% endfor %}
-{% endif %}
+    {%  endif %}
 
- {% if "bedgraph" in file_types %}
-    {% for sample in samples %}
+    {% if "bedgraph" in file_types  %}
          {% block bedgraph_track %}
          {% endblock %}
-    {% endfor %}
-{% endif %}
+    {%  endif %}
     </Panel>
 
-{% if "bam" in file_types %}
-    {% for sample in samples %}
-         {% block bam_track %}
+    {%  if "bam" in file_types %}
+        {% block bam_track %}
          {% endblock %}
-    {% endfor %}
-{% endif %}
+    {%  endif %}
 
-{% if "bed" in file_types %}
-    {% for sample in samples %}
+    {%  if "bed" in file_types %}
          {% block bed_track %}
          {% endblock %}
-    {% endfor %}
-{% endif %}
+    {%  endif %}
 
     <Panel height="56" name="FeaturePanel" width="1953">
         <Track altColor="0,0,178" autoScale="false" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="Reference sequence" name="Reference sequence" sortable="false" visible="true"/>

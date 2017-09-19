@@ -9,53 +9,67 @@
     {% endblock %}
 
     {% block list_files %}
-        {% if "vcf" in file_types %}
-        <Resource path="{{domain}}/{{project}}/{{vcf_dir}}/{{sample}}.vcf"/>
-        {% endif %}
-        {% if "bigwig" in file_types %}
-        <Resource path="{{domain}}/{{project}}/{{bigwig_dir}}/{{sample}}.s.bw"/>
-        {% endif %}
-        {% if "bam" in file_types %}
-        <Resource path="{{domain}}/{{project}}/{{bam_dir}}/{{sample}}.bam"/>
-        {% endif %}
+        {%  for sample in samples %}
+            {% if "vcf" in file_types and multisample_vcf == "no" %}
+                <Resource path="{{domain}}/{{project}}/{{vcf_dir}}/{{sample}}.vcf"/>
+            {% endif %}
+            {% if "bigwig" in file_types %}
+                <Resource path="{{domain}}/{{project}}/{{bigwig_dir}}/{{sample}}.s.bw"/>
+            {% endif %}
+            {% if "bam" in file_types %}
+                <Resource path="{{domain}}/{{project}}/{{bam_dir}}/{{sample}}.bam"/>
+            {% endif %}
+            {% if "bedgraph" in file_types %}
+                <Resource path="{{domain}}/{{project}}/{{bam_dir}}/{{sample}}.bedgraph"/>
+            {% endif %}
 
+        {%  endfor %}
+        {%  if "vcf" in file_types and multisample_vcf == "yes" %}
+             <Resource path="{{ domain }}/{{ project }}/{{ vcf_dir }}/{{ vcf}} "/>
+        {%  endif %}
+        {%  if "gtf" in file_types or "gff3" in file_types %}
+             <Resource path="{{ domain }}/{{ project }}/{{ gtf }}"/>
+        {%  endif %}
     {% endblock %}
-
-    {%  block list_ann %}
-        <Resource path="{{ domain }}/{{ project }}/{{ gtf }}"/>
-    {%  endblock %}
-
 
     {% block vcf_track %}
-        <Track SQUISHED_ROW_HEIGHT="4" altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" colorMode="GENOTYPE" colorScale="ContinuousColorScale;0.0;73.0;255,255,255;0,0,178" displayMode="EXPANDED" featureVisibilityWindow="-1" fontSize="10" grouped="false" id="{{domain}}/{{project}}/{{vcf_dir}}/{{sample}}.vcf" name="{{sample}}.vcf" renderer="BASIC_FEATURE" siteColorMode="ALLELE_FREQUENCY" sortable="false" variantBandHeight="25" visible="true" windowFunction="count">
-            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="73.0" minimum="0.0" type="LINEAR"/>
-        </Track>
-    {% endblock %}
+        {% for sample in samples %}
+            <Track SQUISHED_ROW_HEIGHT="4" altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" colorMode="GENOTYPE" colorScale="ContinuousColorScale;0.0;73.0;255,255,255;0,0,178" displayMode="EXPANDED" featureVisibilityWindow="-1" fontSize="10" grouped="false" id="{{domain}}/{{project}}/{{vcf_dir}}/{{sample}}.vcf" name="{{sample}}.vcf" renderer="BASIC_FEATURE" siteColorMode="ALLELE_FREQUENCY" sortable="false" variantBandHeight="25" visible="true" windowFunction="count">
+                <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="73.0" minimum="0.0" type="LINEAR"/>
+             </Track>
+        {%  endfor %}
+   {% endblock %}
 
     {% block bigwig_track %}
-        <Track altColor="0,0,178" autoScale="true" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="{{domain}}/{{project}}/{{bigwig_dir}}/{{sample}}.s.bw" name="{{sample}}.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
-            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="256773.94" minimum="0.0" type="LINEAR"/>
-        </Track>
+        {%  for sample in samples %}
+            <Track altColor="0,0,178" autoScale="true" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="{{domain}}/{{project}}/{{bigwig_dir}}/{{sample}}.s.bw" name="{{sample}}.bw" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
+                <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="256773.94" minimum="0.0" type="LINEAR"/>
+            </Track>
+        {% endfor %}
     {% endblock %}
 
     {% block bedgraph_track %}
-        <Track altColor="0,0,178" autoScale="true" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="{{domain}}/{{project}}/{{bedgraph_dir}}/{{sample}}.bedgraph" name="{{sample}}.bedgraph" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
+        {% for sample in samples %}
+         <Track altColor="0,0,178" autoScale="true" clazz="org.broad.igv.track.DataSourceTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="{{domain}}/{{project}}/{{bedgraph_dir}}/{{sample}}.bedgraph" name="{{sample}}.bedgraph" normalize="false" renderer="BAR_CHART" sortable="true" visible="true" windowFunction="mean">
             <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="86.0" minimum="0.0" type="LINEAR"/>
-        </Track>
+         </Track>
+        {%  endfor %}
     {% endblock %}
 
     {% block bam_track %}
-    <Panel height="1293" name="Panel{{sample}}" width="1953">
-        <Track altColor="0,0,178" autoScale="true" color="175,175,175" colorScale="ContinuousColorScale;0.0;67.0;255,255,255;175,175,175" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="{{domain}}/{{project}}/{{bam_dir}}/{{sample}}_bwa.bam_coverage" name="{{sample}} Coverage" showReference="false" snpThreshold="0.2" sortable="true" visible="true">
-            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="86.0" minimum="0.0" type="LINEAR"/>
-        </Track>
-        <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="60" id="{{domain}}/{{project}}/{{bam_dir}}/{{sample}}.bam_junctions" name="{{sample}}.bam Junctions" sortable="false" visible="false" windowFunction="count">
-            <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="60.0" minimum="0.0" type="LINEAR"/>
-        </Track>
-        <Track altColor="0,0,178" autoScale="false" color="0,0,178" displayMode="EXPANDED" featureVisibilityWindow="-1" fontSize="10" id="{{domain}}/{{project}}/{{bam_dir}}/{{sample}}.bam" name="{{sample}}" sortable="true" visible="true">
-            <RenderOptions colorByTag="" colorOption="READ_STRAND" flagUnmappedPairs="false" groupByTag="" maxInsertSize="1000" minInsertSize="50" shadeBasesOption="QUALITY" shadeCenters="true" showAllBases="false" sortByTag=""/>
-        </Track>
-    </Panel>
+        {% for sample in samples %}
+        <Panel height="1293" name="Panel{{sample}}" width="1953">
+            <Track altColor="0,0,178" autoScale="true" color="175,175,175" colorScale="ContinuousColorScale;0.0;67.0;255,255,255;175,175,175" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" id="{{domain}}/{{project}}/{{bam_dir}}/{{sample}}_bwa.bam_coverage" name="{{sample}} Coverage" showReference="false" snpThreshold="0.2" sortable="true" visible="true">
+                <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="86.0" minimum="0.0" type="LINEAR"/>
+            </Track>
+            <Track altColor="0,0,178" autoScale="false" clazz="org.broad.igv.track.FeatureTrack" color="0,0,178" displayMode="COLLAPSED" featureVisibilityWindow="-1" fontSize="10" height="60" id="{{domain}}/{{project}}/{{bam_dir}}/{{sample}}.bam_junctions" name="{{sample}}.bam Junctions" sortable="false" visible="false" windowFunction="count">
+                <DataRange baseline="0.0" drawBaseline="true" flipAxis="false" maximum="60.0" minimum="0.0" type="LINEAR"/>
+            </Track>
+            <Track altColor="0,0,178" autoScale="false" color="0,0,178" displayMode="EXPANDED" featureVisibilityWindow="-1" fontSize="10" id="{{domain}}/{{project}}/{{bam_dir}}/{{sample}}.bam" name="{{sample}}" sortable="true" visible="true">
+                <RenderOptions colorByTag="" colorOption="READ_STRAND" flagUnmappedPairs="false" groupByTag="" maxInsertSize="1000" minInsertSize="50" shadeBasesOption="QUALITY" shadeCenters="true" showAllBases="false" sortByTag=""/>
+            </Track>
+        </Panel>
+        {% endfor %}
     {% endblock %}
 
     {%  block gene_track %}
